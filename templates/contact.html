@@ -1,0 +1,38 @@
+{% width messages=get_flashed_messages() %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+<li>{{message}}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+
+{% for message in form.name.errors %}
+<div>{{message}}</div>
+{% endfor %}
+
+{% for message in form.email.errors %}
+<div>{{message}}</div>
+{% endfor %}
+<form action="/contact" method="POST">
+<fieldset>
+<legend>Contact Form</legend>
+{{form.hidden_tag()}}
+<div>
+{{form.name.label}}
+{{form.name}}<br>
+{{form.age.label}}
+{{form.age}}<br>
+{{form.Address.label}}
+{{form.Address}}<br>
+{{form.language.label}}
+{{form.language}}<br>
+{{form.Gender.label}}
+{{form.Gender}}<br>
+{{form.submit.label}}
+{{form.submit}}
+</div>
+</fieldset>
+</form>
